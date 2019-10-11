@@ -1,6 +1,5 @@
 /*
-* 该js是用于定义App组件的
-* 引入：1.React
+* 该js是用于定义App组件的,必须引入React
 * */
 import React from 'react';
 
