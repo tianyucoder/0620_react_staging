@@ -1,26 +1,26 @@
+/*
+* 该js是用于定义App组件的
+* 引入：1.React
+* */
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+/*用工厂函数的方式定义了一个简单的组件*/
+/*function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <h2>hello，0620，今天第一次接触react脚手架</h2>
   );
+}*/
+
+/*类的形式定义App组件*/
+class App extends React.Component{
+  render(){
+    return (
+      <div>
+        <h2>hello，0620，今天第一次接触react脚手架</h2>
+      </div>
+    )
+  }
 }
+
 
 export default App;
