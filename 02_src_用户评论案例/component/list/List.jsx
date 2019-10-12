@@ -1,8 +1,13 @@
 import React,{Component} from 'react'
 import Item from '../item/Item'
 import './List.css'
+import PropTypes from 'prop-types'
 
 export default class List extends Component{
+  static propTypes = {
+    comments:PropTypes.array.isRequired,
+    deleteComment:PropTypes.func.isRequired,
+  }
   render(){
     let {comments,deleteComment} = this.props
     return (

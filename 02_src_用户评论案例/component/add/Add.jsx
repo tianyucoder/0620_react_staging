@@ -1,8 +1,12 @@
 import React,{Component} from 'react'
 import uuid from 'uuid'
+import PropTypes from 'prop-types'
 
 export default class Add extends Component{
   myRef = React.createRef()
+  static propTypes = {
+    addComment:PropTypes.func.isRequired
+  }
   add = ()=>{
     let {addComment} = this.props
     //1.获取用户输入

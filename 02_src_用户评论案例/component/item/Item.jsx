@@ -1,7 +1,11 @@
 import React, {Component} from 'react'
 import './Item.css'
+import PropTypes from 'prop-types'
 
 export default class Item extends Component {
+  static propTypes = {
+    deleteComment:PropTypes.func.isRequired,
+  }
   delete = ()=>{
     let {deleteComment} = this.props
      //1.获取该条评论的唯一标识--id
