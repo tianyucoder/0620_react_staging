@@ -1,5 +1,4 @@
 import React,{Component} from 'react'
-import axios from 'axios'
 
 export default class App extends Component{
   state = {
@@ -9,19 +8,31 @@ export default class App extends Component{
     error:''//错误信息(不一定有值)
   }
   render(){
-    return (
-      <h1>Loading......</h1>
-    )
+    this.keyWord = 'v'
+    let {isLoading,repoName,repoUrl,error} = this.state
+    if(isLoading){
+      return <h1>Loading......</h1>
+    }else if(repoName && repoUrl){
+      return <h1>github上包含“{this.keyWord}”关键词的仓库中点赞最多的是：<a href={repoUrl}>{repoName}</a></h1>
+    }else if(error){
+      return <h1 style={{color:'red'}}>{error}</h1>
+    }
   }
   componentDidMount(){
-    //用axios发送ajax请求
-    axios.get('https://api.github.com/search/repositories?q=v&sort=stars')
-      .then(function (data) {
+    //使用fetch发Ajax请求
+    fetch('https://api.github.com/search/repositories?q=r&sort=stars')
+      .then(function(response) {
+        //console.log(response.json())
+        return response.json()
+      })
+      .then(function(data) {
         console.log(data);
       })
-      .catch(function (error) {
-        console.log(error);
-      })
+      .catch(function(e) {
+        console.log("Oops, error");
+      });
+
+
   }
 }
 
