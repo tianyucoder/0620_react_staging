@@ -6,7 +6,22 @@
 </head>
 <body>
   <script type="text/javascript">
-  
+    let p1 = new Promise(function (resolve,reject) {
+      resolve()
+    })
+    
+    p1.then(()=>{
+        console.log('p1成功了')
+        return new Promise(function(resolve,reject){resolve('hello')})
+    })
+      .then((data)=>{
+        console.log(data)
+      })
+      /*.catch(()=>{
+        console.log('失败了@@@')
+      })*/
+    
+    
   </script>
 </body>
 </html>
