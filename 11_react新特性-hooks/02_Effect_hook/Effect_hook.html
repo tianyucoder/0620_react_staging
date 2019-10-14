@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="demo"></div>
+
+<script type="text/javascript" src="../js/react.development.js"></script>
+<script type="text/javascript" src="../js/react-dom.development.js"></script>
+<script type="text/javascript" src="../js/babel.min.js"></script>
+
+<script type="text/babel">
+
+  function Example() {
+    let [count,setCount] = React.useState(0)
+    let [name,setName] = React.useState(0)
+    React.useEffect(() => {
+      console.log('@')
+      setInterval(()=>{
+        setCount(count => count+1)
+      },1000)
+    },[])
+    return (
+      <div>
+        <p>你点击了 {count} 次</p>
+        <button onClick={()=>{setCount(count+1)}}>
+          点我
+        </button>
+      </div>
+    );
+  }
+  ReactDOM.render(<Example/>,document.getElementById('demo'))
+
+</script>
+
+
+</body>
+</html>

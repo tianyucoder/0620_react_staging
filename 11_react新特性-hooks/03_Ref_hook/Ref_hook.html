@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="demo"></div>
+
+<script type="text/javascript" src="../js/react.development.js"></script>
+<script type="text/javascript" src="../js/react-dom.development.js"></script>
+<script type="text/javascript" src="../js/babel.min.js"></script>
+
+<script type="text/babel">
+
+  function Demo() {
+    console.log('Demo------------')
+    let [count,setCount] = React.useState(0)
+    let myRef = React.useRef()
+    let myRef2 = React.useRef(Date.now())
+    React.useEffect(() => {
+      console.log('@')
+      setInterval(()=>{
+        setCount(count => count+1)
+      },1000)
+    },[])
+    
+    function test1() {
+      alert(myRef2.current.innerHTML)
+    }
+    function test2() {
+      myRef2.timeaa = 'abc'
+    }
+    function test3() {
+      alert(myRef2.current.timeaa)
+    }
+    return (
+      <div>
+        <h3 ref={myRef}>你点击了 {count} 次</h3>
+        <button onClick={test1}>点我提示h3里的文字</button>
+        <button onClick={test2}>记录当前时间</button>
+        <button onClick={test3}>输出之前的记录的时间</button>
+      </div>
+    )
+  }
+  
+  ReactDOM.render(<Demo/>,document.getElementById('demo'))
+
+</script>
+
+
+</body>
+</html>

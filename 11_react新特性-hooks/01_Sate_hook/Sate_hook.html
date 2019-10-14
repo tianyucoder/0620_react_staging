@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="demo"></div>
+
+<script type="text/javascript" src="../js/react.development.js"></script>
+<script type="text/javascript" src="../js/react-dom.development.js"></script>
+<script type="text/javascript" src="../js/babel.min.js"></script>
+
+<script type="text/babel">
+
+  //使用类的形式完成案例
+  /*class Example extends React.Component{
+    state = {count:0}
+    add = ()=>{
+      let {count} = this.state
+      count +=1
+      this.setState({count:count})
+    }
+    render(){
+      return (
+        <div>
+          <p>你点击了 {this.state.count} 次</p>
+          <button onClick={this.add}>
+           点我
+          </button>
+        </div>
+      );
+    }
+  }*/
+  
+  
+  //使用函数形式完成
+  function Example() {
+    console.log('Example--------')
+    let [count,setCount] = React.useState(0)
+    return (
+      <div>
+        <p>你点击了 {count} 次</p>
+        <button onClick={()=>{setCount(count+1)}}>
+          点我
+        </button>
+      </div>
+    );
+  }
+  ReactDOM.render(<Example/>,document.getElementById('demo'))
+</script>
+
+
+</body>
+</html>
