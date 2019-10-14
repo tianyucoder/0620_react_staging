@@ -8,7 +8,7 @@ export default class App extends Component{
       {id:'8189dg7f78dfu767thkj',userName:'阿野',content:'so easy!'},
       {id:'827cvbipohjjk789988y',userName:'张洪丽',content:'很简单，都不用学'},
       {id:'8378c78dfjkhdfg78980',userName:'程老师',content:'react是啥'}
-    ]
+    ],
   }
   addComment = (commentObj)=>{
     //1.获取原数据

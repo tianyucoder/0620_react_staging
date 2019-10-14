@@ -37,10 +37,6 @@ export default class Search extends Component {
           error:error.message
         })
       })
-
-    //5.修改loading为false
-    //4.维护状态
-    //5.清空
   }
   render() {
     return (

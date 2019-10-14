@@ -1,8 +1,7 @@
 import React,{Component} from 'react'
-import {Link,Route,Switch,NavLink,Redirect} from 'react-router-dom'
-import MyNavLink from './component/MyNavLink'
 import About from './pages/About'
 import Home from './pages/Home'
+import {Link,Route,Switch,NavLink,Redirect} from 'react-router-dom'
 
 export default class App extends Component{
   render(){
@@ -22,8 +21,9 @@ export default class App extends Component{
               <a className="list-group-item active" href="./home.html">Home</a>*/}
 
               {/*React的写法如下：点击路由导航，实现组件的切换--------定义路由导航*/}
-              <MyNavLink to="/about">About</MyNavLink>
-              <MyNavLink to="/home">Home</MyNavLink>
+              <NavLink className="list-group-item" activeClassName="active" to="/about">About</NavLink>
+              <NavLink className="list-group-item" activeClassName="active" to="/home">Home</NavLink>
+
             </div>
           </div>
           <div className="col-xs-6">
