@@ -16,12 +16,14 @@
   function Example() {
     let [count,setCount] = React.useState(0)
     let [name,setName] = React.useState(0)
+    
     React.useEffect(() => {
       console.log('@')
       setInterval(()=>{
         setCount(count => count+1)
       },1000)
     },[])
+    
     return (
       <div>
         <p>你点击了 {count} 次</p>

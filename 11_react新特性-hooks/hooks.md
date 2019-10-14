@@ -42,5 +42,5 @@
     3). 作用:
         保存标签对象: 功能与React.createRef()一样
         保存任意数据: 
-            保存: refContainer.xxx = value
-            读取: refContainer.xxx
+            保存: refContainer.current.xxx = value
+            读取: refContainer.current.xxx
