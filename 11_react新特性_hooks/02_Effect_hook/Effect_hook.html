@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="demo"></div>
+
+<script type="text/javascript" src="../js/react.development.js"></script>
+<script type="text/javascript" src="../js/react-dom.development.js"></script>
+<script type="text/javascript" src="../js/babel.min.js"></script>
+
+<script type="text/babel">
+
+  /*class Demo extends React.Component{
+    state = {count:0}
+    add = ()=>{
+      let {count} = this.state
+      this.setState({count:count+1})
+    }
+    componentDidMount(){
+      this.timeId = setInterval(()=>{
+        let {count} = this.state
+        this.setState({count:count+1})
+      },1000)
+    }
+    remove = ()=>{
+       ReactDOM.unmountComponentAtNode(document.getElementById('demo'))
+    }
+    componentWillUnmount(){
+      clearInterval(this.timeId)
+    }
+    render(){
+      let {count} = this.state
+      return (
+        <div>
+          <h2>你点击了{count}次</h2>
+          <button onClick={this.add}>点我</button>
+          <button onClick={this.remove}>卸载组件</button>
+        </div>
+      )
+    }
+  }*/
+
+  function Demo() {
+    let [count,setCount] = React.useState(0)
+    let [age,setAge] = React.useState(0)
+    function add() {
+      setCount(count => count+1)
+    }
+    function remove() {
+      ReactDOM.unmountComponentAtNode(document.getElementById('demo'))
+    }
+    //组件挂载了 --  componentDidMount
+    //状态更新了 --  componentWillUpdate
+    //状态将要卸载 --  componentWillUnmount
+    React.useEffect(()=>{
+       console.log('useEffect传入的回调函数执行了')
+       let timeId = setInterval(()=>{
+         setCount(count => count+1)
+       },1000)
+        return ()=>{
+          console.log('组件卸载了')
+          clearInterval(timeId)
+        }
+    },[])
+    return (
+      <div>
+        <h2>你点击了{count}次</h2>
+        <button onClick={add}>点我</button>
+        <button onClick={remove}>卸载组件</button>
+      </div>
+    )
+  }
+
+  ReactDOM.render(<Demo/>,document.getElementById('demo'))
+
+</script>
+
+
+</body>
+</html>

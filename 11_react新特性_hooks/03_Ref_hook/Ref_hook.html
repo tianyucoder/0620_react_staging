@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="demo"></div>
+
+<script type="text/javascript" src="../js/react.development.js"></script>
+<script type="text/javascript" src="../js/react-dom.development.js"></script>
+<script type="text/javascript" src="../js/babel.min.js"></script>
+
+<script type="text/babel">
+
+  function Demo() {
+    let myRef = React.useRef()
+    let myRef2 = React.useRef()
+    function test1() {
+      alert(myRef.current.value)
+    }
+    function test2() {
+      console.log(myRef2)
+      myRef2.current = Date.now()
+      console.log(myRef2)
+    }
+    function test3() {
+      alert(myRef2.current)
+    }
+    return (
+      <div>
+        <input type="text" ref={myRef}/>
+        <button onClick={test1}>点我提示输入</button>
+        <button onClick={test2}>点我记录时间</button>
+        <button onClick={test3}>点我输出刚才的记录</button>
+      </div>
+    )
+  }
+
+  ReactDOM.render(<Demo/>,document.getElementById('demo'))
+
+</script>
+
+
+</body>
+</html>

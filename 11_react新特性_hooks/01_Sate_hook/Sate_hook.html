@@ -13,41 +13,40 @@
 
 <script type="text/babel">
 
-  //使用类的形式完成案例
-  /*class Example extends React.Component{
+  /*class Demo extends React.Component{
     state = {count:0}
     add = ()=>{
       let {count} = this.state
-      count +=1
-      this.setState({count:count})
+      this.setState({count:count+1})
     }
     render(){
+      let {count} = this.state
       return (
         <div>
-          <p>你点击了 {this.state.count} 次</p>
-          <button onClick={this.add}>
-           点我
-          </button>
+          <h2>你点击了{count}次</h2>
+          <button onClick={this.add}>点我</button>
         </div>
-      );
+      )
     }
   }*/
   
-  
-  //使用函数形式完成
-  function Example() {
-    console.log('Example--------')
+  function Demo() {
     let [count,setCount] = React.useState(0)
+    function add() {
+      setInterval(()=>{
+        setCount(count => count+1)
+      },1000)
+    }
     return (
       <div>
-        <p>你点击了 {count} 次</p>
-        <button onClick={()=>{setCount(count+1)}}>
-          点我
-        </button>
+        <h2>你点击了{count}次</h2>
+        <button onClick={add}>点我</button>
       </div>
-    );
+    )
   }
-  ReactDOM.render(<Example/>,document.getElementById('demo'))
+  
+  ReactDOM.render(<Demo/>,document.getElementById('demo'))
+  
 </script>
 
 
